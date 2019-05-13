@@ -6,6 +6,7 @@ import {Input,Button} from 'react-native-elements'
 import styles from '../assets/styleSheet.js'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Calls from '../assets/apiCalls.js'
+import IP from '../ip.js'
 
 class Login extends React.Component{
     constructor(props){
@@ -18,7 +19,7 @@ class Login extends React.Component{
     }
 
     handleLogin = async () =>{
-      url = 'http://127.0.0.1:5000/auth'
+      url = 'http://'+IP+':5000/auth'
       userInfo = {
         username:this.state.username,
         password:this.state.password,

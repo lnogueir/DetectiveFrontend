@@ -8,6 +8,7 @@ import AntIcon from 'react-native-vector-icons/AntDesign';
 import Tags from "react-native-tags";
 import Calls from '../assets/apiCalls.js';
 import styles from '../assets/styleSheet.js'
+import IP from '../ip.js'
 
 const win = Dimensions.get('window');
 
@@ -22,8 +23,14 @@ class Result extends React.Component{
 
   }
 
+  static navigationOptions = ({navigation}) => {
+    return {
+      title:'Detective Result',
+    }
+  }
+
   removeImageFromDB = () =>{
-    let url='http://127.0.0.1:5000/graph'
+    let url='http://'+IP+':5000/graph'
     data={filename:this.state.filename}
     Calls.DELETE(url,data)
     .then((response)=>{
@@ -45,10 +52,9 @@ class Result extends React.Component{
         }}
       />
       <View style={{margin:15,alignItems:'center'}}>
-        <Text style={styles.detectiveResultTitle}>Detective Result</Text>
         <Image
-          style={{width:450,height:460}}
-          source={{cache:'reload',uri:'http://127.0.0.1:5000/graph?filename='+this.state.filename}}
+          style={{width:390,height:415}}
+          source={{cache:'reload',uri:'http://'+IP+':5000/graph?filename='+this.state.filename}}
         />
       </View>
       <View style={{alignItems:'center',width:'100%',justifyContent:'center'}}>

@@ -7,6 +7,7 @@ import styles from '../assets/styleSheet.js'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Calls from '../assets/apiCalls.js'
+import IP from '../ip.js'
 
 
 
@@ -21,7 +22,7 @@ class createAccount extends React.Component{
     }
 
     signUpPOST = async () =>{
-      url = 'http://127.0.0.1:5000/register'
+      url = 'http://'+IP+':5000/register'
       userInfo = {
         username:this.state.username,
         password:this.state.password,

@@ -8,6 +8,7 @@ import Home from './screens/Home.js'
 import createAccount from './screens/createAccount.js';
 import Result from './screens/result.js'
 import Saves from './screens/saves.js'
+import AntIcon from 'react-native-vector-icons/AntDesign';
 
 
 
@@ -45,9 +46,37 @@ const SavesStack = createStackNavigator({
 })
 
 const MainNavigator = createBottomTabNavigator({
-  Home:{screen:HomeStack},
-  Saves:{screen:SavesStack}
-})
+  Home:{screen:HomeStack,navigationOptions:({navigation})=>({
+      tabBarIcon:({tintColor}) => (
+        <AntIcon
+        name="home"
+        color={tintColor}
+        size={32}
+        />
+      )
+    })},
+  Saves:{screen:SavesStack,navigationOptions:({navigation})=>({
+      tabBarIcon:({tintColor}) => (
+        <AntIcon
+        name="barschart"
+        color={tintColor}
+        size={32}
+        />
+      )
+    })}
+},{tabBarOptions:{
+    // showLabel:false,
+    labelStyle:{
+      fontSize:13,
+    },
+    iconStyle:{
+      paddingRight:50
+    },
+    activeBackgroundColor:'whitesmoke',
+    inactiveBackgroundColor:'whitesmoke',
+    activeTintColor:'#4f4338'
+  },
+  })
 
 
 

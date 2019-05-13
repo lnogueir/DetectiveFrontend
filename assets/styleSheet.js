@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   inputContainerLogin:{
     flexDirection:'column',
     alignItems:'center',
-    height:'20%',
+    height:'25%',
     justifyContent:'center'
   },
   inputStyle:{
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
       textAlign:'center',padding:15,fontFamily:'Avenir',
       color:'white',fontWeight:'bold'
   },
-  headerTitleStyle:{fontSize:20,color:"white",fontWeight:'600'}  
+  headerTitleStyle:{fontSize:18,color:"white",fontWeight:'600'}
 
 
 

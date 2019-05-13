@@ -7,6 +7,7 @@ import AntIcon from 'react-native-vector-icons/AntDesign';
 import Tags from "react-native-tags";
 import Calls from '../assets/apiCalls.js';
 import styles from '../assets/styleSheet.js'
+import IP from '../ip.js'
 
 
 class Home extends React.Component{
@@ -34,7 +35,7 @@ class Home extends React.Component{
     }
 
     getKeywords = (topic_name) =>{
-      let url = 'http://127.0.0.1:5000/topic/'+this.state.username+'/'+topic_name
+      let url = 'http://'+IP+':5000/topic/'+this.state.username+'/'+topic_name
       fetch(url)
       .then((response)=>response.json())
       .then((responseJson)=>{
@@ -43,7 +44,7 @@ class Home extends React.Component{
     }
 
     addKeyword = (keyword) => {
-      let url = 'http://127.0.0.1:5000/tag/'+this.state.topic.id+'/'+keyword
+      let url = 'http://'+IP+':5000/tag/'+this.state.topic.id+'/'+keyword
       fetch(url,{
         method:'POST'
       })
@@ -55,7 +56,7 @@ class Home extends React.Component{
     }
 
     deleteKeyword = (keyword) => {
-      let url = 'http://127.0.0.1:5000/tag/'+this.state.topic.id+'/'+keyword
+      let url = 'http://'+IP+':5000/tag/'+this.state.topic.id+'/'+keyword
       fetch(url,{
         method:'DELETE'
       })
@@ -64,7 +65,7 @@ class Home extends React.Component{
     }
 
     addTopic = (topic) =>{
-      let url = 'http://127.0.0.1:5000/topic/'+this.state.username+'/'+topic
+      let url = 'http://'+IP+':5000/topic/'+this.state.username+'/'+topic
       fetch(url,{
         method:'POST'
       })
@@ -78,13 +79,13 @@ class Home extends React.Component{
 
     deleteTopic = (topic) => {
 
-      let url = 'http://127.0.0.1:5000/tags/'+this.state.topic.id
+      let url = 'http://'+IP+':5000/tags/'+this.state.topic.id
       fetch(url,{
         method:'DELETE'
       }).then((response)=>{
 
         if(response.status==200 || response.status==404){
-          url = 'http://127.0.0.1:5000/topic/'+this.state.username+'/'+topic
+          url = 'http://'+IP+':5000/topic/'+this.state.username+'/'+topic
           fetch(url,{
             method:'DELETE'
           })
@@ -103,7 +104,7 @@ class Home extends React.Component{
 
     getUserInfo = async () =>{
       let username = await this.getUsername()
-      let url = 'http://127.0.0.1:5000/user/'+this.state.username
+      let url = 'http://'+IP+':5000/user/'+this.state.username
        fetch(url)
       .then((response)=>response.json())
       .then((responseJson)=>{
@@ -113,7 +114,7 @@ class Home extends React.Component{
 
     getSearchResult = () => {
       this.setState({isLoading:true})
-      let url = 'http://127.0.0.1:5000/graph'
+      let url = 'http://'+IP+':5000/graph'
       body = {
         url:this.state.search,
         username:this.state.username
@@ -217,8 +218,8 @@ class Home extends React.Component{
             inputStyle={{padding:7}} placeholder='Enter new topic'
             rightIcon={<AntIcon onPress={()=>this.addTopic(this.state.newTopic)} raised
             reverse name='pluscircle' color='#4f4338' size={23}/>}/>
-            <View style={{margin:15,width:'94%'}}>
-              <ScrollView>
+            <View style={{flex:1,marginHorizontal:15,marginTop:10,width:'94%'}}>
+            <ScrollView>
               {
                 this.state.topics.map((l, i) => (
                   <ListItem

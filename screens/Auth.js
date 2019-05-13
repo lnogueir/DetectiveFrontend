@@ -4,6 +4,7 @@ import {AsyncStorage,ActivityIndicator, TextInput,Alert,Linking,
   AppRegistry,ScrollView,Text, View,Image,StyleSheet} from 'react-native';
 import {Button} from 'react-native-elements';
 
+
 class AuthLoadingScreen extends React.Component{
   constructor(props){
     super(props);
@@ -22,7 +23,9 @@ class AuthLoadingScreen extends React.Component{
   render(){
     return (
       <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-        <Text>Authentication Screen</Text>
+      <Image
+        source={require('../assets/detective-guy.png')}
+      />
       </View>
     );
   }
