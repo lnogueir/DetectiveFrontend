@@ -1,7 +1,7 @@
 # HTML Detective
 
 ## Introduction
-This application was based on the projects created by Professor Sapienza from URFJ and originally all in python.
+This application was based on the projects designed by Professor Sapienza from URFJ and originally all in python.
 I compiled most Sapienza's proposed Python first year projects into one. Initially this was was a tkinter application, since this was the library proposed by the Prof, but I've created a new version using React Native for the front end.
 Besides that, I have also modified the way I store the data, however still using Python libraries, instead of saving it as file system, I switched to database system for the backend. Code for the backend available [here]().
 
@@ -23,4 +23,7 @@ Even though there might not seem to have a direct application for this app, I be
 
 ## Emailing contacts with detective mailer:
 <a href="https://imgflip.com/gif/30t4bg"><img src="https://i.imgflip.com/30t4bg.gif" title="made at imgflip.com"/></a>
+
+## Sign in page:
+![](assets/signin.png)
  
