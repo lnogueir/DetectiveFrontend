@@ -25,6 +25,6 @@ Even though there might not seem to have a direct application for this app, I be
 <a href="https://imgflip.com/gif/30t4bg"><img src="https://i.imgflip.com/30t4bg.gif" title="made at imgflip.com"/></a>
 
 ## Sign in page:
-<img src="assets/signin.png" width="100">
+<img src="assets/signin.png" width="250">
 <!-- ![](assets/signin.png) -->
  
